@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'animation/scale.dart';
 import 'widget/turnbox.dart';
-import 'package:dio/dio.dart';
-import 'package:async/async.dart';
-import 'dart:async';
-import 'dart:io';
+import 'package:flutter_demo/views/communication.dart';
 
 void main() => runApp(MyApp());
 
 Map<String, WidgetBuilder> routes = {
   'turn_box': (context) => TurnBoxRoute(),
+  'communication': (context) => CommunicationDemo(),
 };
 
 class MyApp extends StatelessWidget {
