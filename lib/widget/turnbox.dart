@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 
 class TurnBoxRoute extends StatefulWidget {
   @override
@@ -8,6 +9,15 @@ class TurnBoxRoute extends StatefulWidget {
 
 class _TurnBoxRouteState extends State<TurnBoxRoute> {
   double _turns = .0;
+
+  Future request() async {
+    try {
+      var response = await Dio().get('http://intapp.h3c.com/smartschemeback/app/verifyCode/18205186177');
+      print(response.toString());
+    } on DioError catch (error) {
+      print(error.response);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +42,7 @@ class _TurnBoxRouteState extends State<TurnBoxRoute> {
               onPressed: () {
                 setState(() {
                   _turns += .2;
+                  request();
                 });
               },
             ),

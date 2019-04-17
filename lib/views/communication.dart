@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/widget/child_two.dart';
 import 'package:flutter_demo/events/child2_event.dart';
+import 'package:flutter_demo/widget/product_counter.dart';
 
 class CommunicationDemo extends StatelessWidget {
   @override
@@ -27,6 +28,7 @@ class _ParentState extends State<Parent> {
 
   String data = '无';
   String data4Two = '这是传给组件2的值';
+  int count = 0;
 
   void onDataChange(val) {
     setState(() {
@@ -41,6 +43,7 @@ class _ParentState extends State<Parent> {
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          new ProductCounter(size: 50, callback: (val) => onCounterClick(val),),
           new ChildOne(),
           new ChildTwo(data4Two: data4Two, callback: (val) => onDataChange(val)),
           new Container(
@@ -56,13 +59,21 @@ class _ParentState extends State<Parent> {
                     child:  new Text('父组件'),
                   ),
                   new Text('子组件2, 传过来的值: ' + '$data'),
+                  new Text('counter : $count')
                 ]
             ),
-          )
+          ),
         ],
       ),
     );
   }
+
+  void onCounterClick(int amount) {
+    setState(() {
+      print(amount.toString());
+    });
+  }
+
 }
 
 class ChildOne extends StatefulWidget {

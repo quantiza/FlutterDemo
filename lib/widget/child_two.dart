@@ -32,6 +32,7 @@ class _ChildTwoState extends State<ChildTwo> {
     setState(() {
       inputText = value;
     });
+    widget.callback('$inputText');
   }
 
   void firedA() {

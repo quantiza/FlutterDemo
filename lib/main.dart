@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'animation/scale.dart';
 import 'widget/turnbox.dart';
 import 'package:flutter_demo/views/communication.dart';
+import 'package:flutter_demo/views/wechat.dart';
 
-void main() => runApp(MyApp());
+import 'package:fluwx/fluwx.dart' as fluwx;
+
+void main() {
+  runApp(MyApp());
+}
 
 Map<String, WidgetBuilder> routes = {
   'turn_box': (context) => TurnBoxRoute(),
   'communication': (context) => CommunicationDemo(),
+  'wechat': (context) => WechatDemo(),
 };
 
 class MyApp extends StatelessWidget {
