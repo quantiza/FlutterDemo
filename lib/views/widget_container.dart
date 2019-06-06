@@ -9,9 +9,17 @@ class WidgetContainer extends StatelessWidget {
         title: new Text('Widget Container'),
       ),
       body: Container(
+//        height: 200,
+//        width: 200,
         color: Colors.red,
-        child: Opacity(opacity: null),
+//        child: Center(
+          child: Text('hello world'),
+//        ),
       ),
+//      Container(
+//        color: Colors.red,
+//        child: Opacity(opacity: null),
+//      ),
 //      body: Container(
 //        padding: EdgeInsets.all(50),
 //        child: Column(
